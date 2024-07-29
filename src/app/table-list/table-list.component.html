@@ -1,0 +1,37 @@
+<p class="text-success">Table List Works!</p>
+<div class="container mt-4">
+    <h2 class="mb-4">Tables</h2>
+    
+    <!-- Search bar for table names -->
+    <div class="form-group mb-4">
+        <input 
+            [(ngModel)]="searchTerm" 
+            (ngModelChange)="onSearchChange()" 
+            class="form-control" 
+            placeholder="Search tables..." 
+            type="text"
+        />
+    </div>
+    
+    <div class="grid-container">
+        <div 
+            class="grid-item"
+            *ngFor="let table of tables"
+            (click)="onSelectTable(table)"
+            [ngClass]="{'animate__animated': true, 'animate__bounceIn': true}">
+            <i class="fas fa-database fa-2x mr-3"></i>
+            <div class="card shadow-sm table-card">
+                <div class="card-body d-flex align-items-center">
+                 
+                    <span class="table-name">{{ table }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <app-table-details 
+        *ngIf="selectedTable" 
+        [tableName]="selectedTable" 
+        class="mt-4">
+    </app-table-details>
+</div>
