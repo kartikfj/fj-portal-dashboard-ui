@@ -7,12 +7,14 @@ import { TableListComponent } from './table-list/table-list.component';
 import { TableDetailsComponent } from './table-details/table-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableListComponent,
-    TableDetailsComponent
+    TableDetailsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

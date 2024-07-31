@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DatabaseService {
-  private apiUrl = 'http://localhost:9090/fjtcouser'; // Update with your actual API URL
+  private apiUrl = 'http://10.10.4.198:9090/fjtcouser'; // Update with your actual API URL
 
   constructor(private http: HttpClient) { }
 
