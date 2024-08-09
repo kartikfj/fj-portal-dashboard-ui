@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../servic/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -15,12 +16,14 @@ paginatedUsers: any[] = [];
 currentPage: number = 1;
 itemsPerPage: number = 10;
 totalPages: number = 1;
-constructor(private userService: UserService) {}
+constructor(private userService: UserService,private router:Router) {}
 
 ngOnInit(): void {
   this.loadAllUsers();
 }
-
+goBack() {
+  this.router.navigate(['']); // Adjust this path to your main page route
+}
 loadAllUsers(): void {
   this.userService.getAllUsers().subscribe(data => {
     this.users = data;

@@ -1,67 +1,58 @@
-<p class="text-success">Table Details Works!</p>
 <div class="container mt-4">
-    <h3 class="mb-4">Data in {{ tableName }}</h3>
-    
-    <!-- Table Data -->
-    <div class="card shadow-sm mb-4">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th *ngFor="let column of columns">{{ column.Field }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let row of paginatedData">
-                            <td *ngFor="let column of columns">{{ row[column.Field] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Pagination Controls -->
-            <div class="pagination-controls">
-                <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-                <span>Page {{ currentPage }} of {{ totalPages() }}</span>
-                <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next</button>
-            </div>
+    <div class="row mb-4">
+        <div class="col text-start">
+            <button class="btn btn-secondary" (click)="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
         </div>
     </div>
+  
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h1 class="headline">Date in {{ tableName }}</h1>
+        </div>
+    </div>
+    <!-- Table Data -->
+    <div class="card users-table-card">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <input
+                        [(ngModel)]="searchQuery"
+                        (ngModelChange)="filterTableData()"
+                        class="form-control search-input"
+                        placeholder="Search in Table Data"
+                        type="text"
+                    />
+                    <button
+                        (click)="filterTableData()"
+                        class="btn btn-primary ms-2"
+                    >
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
 
-    <!-- Search User Data -->
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h3 class="mb-4">Search User Data</h3>
-            <div class="form-group">
-                <input 
-                    [(ngModel)]="userId" 
-                    class="form-control mb-3" 
-                    placeholder="Enter User ID" 
-                    type="text"
-                />
-                <button 
-                    (click)="searchUserData()" 
-                    class="btn btn-primary"
-                >
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let column of columns">{{ column.Field }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of paginatedData">
+                                <td *ngFor="let column of columns">{{ row[column.Field] }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <h4 class="mt-4">User Data</h4>
-            <div class="table-responsive">
-                <table *ngIf="userData.length" class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th *ngFor="let column of columns">{{ column.Field }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let row of userData">
-                            <td *ngFor="let column of columns">{{ row[column.Field] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- Pagination Controls -->
+                <div class="pagination-controls">
+                    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+                    <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+                    <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next</button>
+                </div>
             </div>
         </div>
     </div>

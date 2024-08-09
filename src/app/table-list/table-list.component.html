@@ -1,16 +1,28 @@
-<p class="text-success">Table List Works!</p>
+
 <div class="container mt-4">
-    <h2 class="mb-4">Tables</h2>
+    <div class="col text-start">
+        <button class="btn btn-secondary" (click)="goBack()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h1 class="headline">FJ-MYSQL Table Management</h1>
+        </div>
+    </div>
     
     <!-- Search bar for table names -->
     <div class="form-group mb-4">
-        <input 
-            [(ngModel)]="searchTerm" 
-            (ngModelChange)="onSearchChange()" 
-            class="form-control" 
-            placeholder="Search tables..." 
-            type="text"
-        />
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input 
+                [(ngModel)]="searchTerm" 
+                (ngModelChange)="onSearchChange()" 
+                class="form-control rounded-start" 
+                placeholder="Search tables..." 
+                type="text"
+            />
+        </div>
     </div>
     
     <div class="grid-container">

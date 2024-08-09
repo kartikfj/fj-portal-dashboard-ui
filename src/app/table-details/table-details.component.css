@@ -9,12 +9,6 @@ h3 {
     color: #343a40;
 }
 
-h4 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #343a40;
-}
-
 .card {
     border-radius: 8px;
     overflow: hidden;
@@ -26,6 +20,7 @@ h4 {
 
 .table-responsive {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .table {
@@ -47,6 +42,7 @@ h4 {
     text-align: center;
     position: sticky;
     top: 0;
+    z-index: 1; /* Ensures header stays above table content */
 }
 
 .table tbody td {
@@ -62,6 +58,24 @@ h4 {
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #004085;
+    transform: scale(1.05);
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: scale(1.05);
 }
 
 /* Pagination Controls */
@@ -103,4 +117,27 @@ h4 {
     to {
         opacity: 1;
     }
+}
+.headline {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.form-control {
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #ced4da;
 }
