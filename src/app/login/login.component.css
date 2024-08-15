@@ -1,0 +1,59 @@
+.container {
+
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 150px;
+    text-align: center;
+  }
+  
+  .login_box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .leave_text {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .bt_box {
+    margin-top: 10px;
+  }
+  
+  .log_btn {
+    background-color: #226a90;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .footer_login {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .footer-text {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .btn-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    padding: 5px 10px;
+  }
+  

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,11 +11,17 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/fjtcouser/all`);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    });
+    return this.http.get<any[]>(`${this.apiUrl}/fjtcouser/all`,{headers});
   }
 
   getUserById(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/fjtcouser/${userId}`);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    });
+    return this.http.get<any>(`${this.apiUrl}/fjtcouser/${userId}`,{headers});
   }
 
   updatePassword(userId: string, newPassword: string): Observable<any> {

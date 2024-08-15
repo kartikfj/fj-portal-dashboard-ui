@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="login_box">
+        <img alt="FJTCO" src="../assets/logo.jpg" class="img-fluid mb-3 mx-auto d-block" style="max-width: 150px;" />
+
+      <h2>FJ Portal</h2>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="l_one">
+          <input
+            class="leave_text"
+            type="text"
+            name="uid"
+            placeholder="User id"
+            [(ngModel)]="uid"
+            required
+            #uidInput="ngModel"
+          />
+        </div>
+        <div class="l_one">
+          <input
+            class="leave_text"
+            type="password"
+            name="passwd"
+            placeholder="Password"
+            [(ngModel)]="passwd"
+            required
+            #passwdInput="ngModel"
+          />
+        </div>
+        <div class="l_one">
+          <div class="n_text2"></div>
+        </div>
+        <div class="l_one">
+          <div class="bt_box">
+            <button
+              type="submit"
+              class="log_btn"
+              [disabled]="!loginForm.form.valid"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+        <div class="l_one">
+          <a href="/forgot-password" style="text-decoration: none;">Forgot your password?</a>
+        </div>
+      </form>
+      <div class="footer_login">
+        <button
+          class="btn btn-xs btn-danger text-right"
+          (click)="showEmergencyNumbers()"
+        >
+          Emergency Numbers
+        </button>
+        <br />
+        <span class="footer-text" *ngFor="let help of helpDeskDetails">
+          Help Desk : {{ help.ename }}<br />
+          Email : {{ help.emailid }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <span class="footer-text">Extension : {{ help.extension }}</span><br />
+        </span>
+        <span class="footer-text">
+          © 1988 - {{ currYear }}
+          <a
+            target="_blank"
+            href="http://www.faisaljassim.ae"
+            rel="noopener noreferrer"
+            >FJ-Group</a
+          >.
+          All Rights Reserved.
+        </span>
+      </div>
+    </div>
+  </div>
+  
