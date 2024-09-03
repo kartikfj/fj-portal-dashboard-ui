@@ -1,0 +1,36 @@
+<p>oracle-database works!</p>
+<div>
+    <h3>Oracle Database Tables</h3>
+    <input [(ngModel)]="searchTerm" placeholder="Search Tables" />
+    <button (click)="fetchTables()">Search</button>
+  
+    <ul>
+      <li *ngFor="let table of tables" (click)="selectedTable = table; fetchColumns(); fetchTableData(); fetchTableColumns()">
+        {{ table }}
+      </li>
+    </ul>
+  
+    <div *ngIf="selectedTable">
+      <h4>Selected Table: {{ selectedTable }}</h4>
+  
+      <h5>Columns:</h5>
+      <ul>
+        <li *ngFor="let column of columns">{{ column }}</li>
+      </ul>
+  
+      <h5>Table Data:</h5>
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let col of tableColumns">{{ col.COLUMN_NAME }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData">
+            <td *ngFor="let col of tableColumns">{{ row[col.COLUMN_NAME] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

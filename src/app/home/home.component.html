@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidenav -->
+    <mat-sidenav #sidenav mode="over" class="sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/overview" (click)="sidenav.close()">Overview</a>
+        <a mat-list-item routerLink="/inventory" (click)="sidenav.close()">Inventory</a>
+        <a mat-list-item routerLink="/customers" (click)="sidenav.close()">Customers</a>
+        <a mat-list-item routerLink="/products" (click)="sidenav.close()">Products</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item (click)="onLogout(); sidenav.close()">Sign out</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main Content -->
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <!-- Menu Icon for Mobile -->
+          <button mat-icon-button (click)="sidenav.toggle()" class="menu-icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+  
+          <!-- Logo and App Name -->
+          <a href="/" class="mat-toolbar-icon">
+            <mat-icon>home</mat-icon>
+          </a>
+  
+          <!-- Navigation Links -->
+          <span class="spacer"></span>
+          <button mat-button routerLink="/overview" class="nav-link">Overview</button>
+          <button mat-button routerLink="/inventory" class="nav-link">Inventory</button>
+          <button mat-button routerLink="/customers" class="nav-link">Customers</button>
+          <button mat-button routerLink="/products" class="nav-link">Products</button>
+  
+          <!-- Search Bar -->
+          <mat-form-field class="search-bar" appearance="outline">
+            <mat-label>Search...</mat-label>
+            <input matInput type="search" aria-label="Search">
+          </mat-form-field>
+  
+          <!-- Profile Image with Dropdown -->
+          <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+            <img src="https://github.com/mdo.png" alt="Profile Image" width="40" height="40" class="rounded-circle">
+          </button>
+          <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item>New project...</button>
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Profile</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="onLogout()">Sign out</button>
+          </mat-menu>
+        </mat-toolbar-row>
+      </mat-toolbar>
+  
+      <!-- Your main content here -->
+      <div class="content">
+        <!-- Add your router-outlet or page content here -->
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
